@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export default function InputForm() {
     const [email,setEmail]=useState("")
-    const [pasword,setPassword]=useState("")
+    const [password,setPassword]=useState("")
     const [isSignUp,setIsSignUp]=useState(false)
 
 const handleOnSubmit=async(e)=>{
@@ -29,3 +29,4 @@ const handleOnSubmit=async(e)=>{
    </>
   )
 }
+
