@@ -18,4 +18,6 @@ export default function Navbar() {
         </>
     )
 }
-sambhal khabar padi gai su poroblem che ruk have tuuol
+babee frontend folder nathi aaivu direct src open thay 
+to <Have></Have>
+kale vinayak avin kari jaseare thai jase ruk
