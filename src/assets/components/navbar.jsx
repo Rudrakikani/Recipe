@@ -18,6 +18,3 @@ export default function Navbar() {
         </>
     )
 }
-babee frontend folder nathi aaivu direct src open thay 
-to <Have></Have>
-kale vinayak avin kari jaseare thai jase ruk
