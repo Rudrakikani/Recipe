@@ -9,14 +9,14 @@ export default function InputForm({setIsOpen}) {
 
 const handleOnSubmit=async(e)=>{
     e.preventDefault()
-    let endpoint=(isSignUp) ? "signUp" : "login"
+    const endpoint=(isSignUp) ? "signUp" : "login"
     await axios.post("")
     .then((res)=>{
         localStorage.setItem("token",res.data.token)
         localStorage.setItem("user",JSON.stringify(res.data.user))
         setIsOpen()
       })
-      .catch(data=>setError)(data.response? data?.error); 
+      .catch(data=>setError)(data.response?.data?.error); 
      
 }
 
@@ -39,4 +39,5 @@ const handleOnSubmit=async(e)=>{
   )
 }
 
- 
+
+
