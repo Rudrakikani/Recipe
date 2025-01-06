@@ -1,15 +1,23 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-export default function InputForm() {
+export default function InputForm({setIsOpen}) {
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
     const [isSignUp,setIsSignUp]=useState(false)
+    const [error,setError]=useState("")
 
 const handleOnSubmit=async(e)=>{
     e.preventDefault()
     let endpoint=(isSignUp) ? "signUp" : "login"
-    await axios.post 
+    await axios.post("")
+    .then((res)=>{
+        localStorage.setItem("token",res.data.token)
+        localStorage.setItem("user",JSON.stringify(res.data.user))
+        setIsOpen()
+      })
+      .catch(data=>setError)(data.response? data?.error); 
+     
 }
 
   return (
@@ -24,9 +32,11 @@ const handleOnSubmit=async(e)=>{
                   <input type='password' className='input' onChange={(e)=>setPassword(e.target.value)} required ></input>
              </div>
              <button type='submit'>{(isSignUp) ? "Sign Up" : "Login"}</button><br></br>
+             { (error!="") &&<h6 className='error'>{error}</h6>}
              <p onClick={()=>setIsSignUp(pre=!pre)}>{(isSignUp) ? "Already have an account" : " Create new account"}</p>
          </form>
    </>
   )
 }
 
+ 
